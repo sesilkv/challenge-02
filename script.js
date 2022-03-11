@@ -145,9 +145,14 @@ console.log(getSplitName(0));
 ///////
 console.log("Number 6.");
 function getAngkaTerbesarKedua(dataAngka) {
+    if (dataAngka !== 0 && !dataAngka) {
+        return "ERROR: Tidak Ada Data Dalam Array";
+    } else if (dataAngka === 0){
+        return "ERROR: Data Nol";
+    }
+
     var firstBiggest = dataAngka[0];
     var secondBiggest = 0;
-    
     if (typeof dataAngka === "object") {
         for(var a=0; a < dataAngka.length; a++){
             if(dataAngka[a] > firstBiggest) {
@@ -159,11 +164,8 @@ function getAngkaTerbesarKedua(dataAngka) {
             }
         }
         return secondBiggest;
-    } else {
-        return "ERROR: Tipe data bukan array!";
     }
-
-    
+    return "ERROR: Tipe data bukan array!";
 }
 
 const dataAngka = [9,4,7,7,4,3,2,2,8];
@@ -205,11 +207,12 @@ const dataPenjualanPakAldi = [
   ]
 
 function getTotalPenjualan(dataPenjualan){
-   dataPenjualan === "number";
-
+    const result = dataPenjualan.reduce((newData, item) =>
+        newData + item.totalTerjual, 0);
+    return result;
 }
 
-console.log(hitungTotalPenjualan(dataPenjualanPakAldi));
+console.log(getTotalPenjualan(dataPenjualanPakAldi));
 
 
 
@@ -256,9 +259,6 @@ const dataPenjualanNovel = [
   ];
 
 function getInfoPenjualan(dataPenjualan){
-    /*
-
-    */
     dataPenjualan === "object";
 }
 
