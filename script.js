@@ -1,6 +1,7 @@
 ///////
 // 1 //
 ///////
+console.log("Number 1.");
 function changeWord(selectedText, changedText, text){
     /*
     parameter pertama = teks yang ada di dalam kalimat
@@ -24,11 +25,8 @@ console.log (changeWord('Bromo','Semeru',kalimat2));
 ///////
 // 2 //
 ///////
+console.log("Number 2.");
 checkTypeNumber = (givenNumber) => {
-    /*
-    if (givenNumber)
-
-    */
     if (givenNumber % 2 === 0 && typeof givenNumber !== "string" && typeof givenNumber === "number") {
         return "GENAP";
     } else if (typeof givenNumber !== "string" && typeof givenNumber === "number") {
@@ -52,43 +50,57 @@ console.log(checkTypeNumber());
 ///////
 // 3 //
 ///////
-// function checkEmail(email ){
-//     /*
+console.log("Number 3.");
+function checkEmail(email){
+    let regex = /^[a-zA-Z0-9+_.-]+@+[a-zA-Z0-9.-]+[.]+[a-z]+$/;
+    if (typeof email === "string") {
+        if (email.match(regex)) {
+            return "VALID";
+        } else if (email.match(/^[a-zA-Z0-9+_.-]+@+[a-zA-Z0-9.-]+$/)){
+            return "INVALID";
+        } 
+    } 
+    return "ERROR: TIDAK ADA DOMAIN";
+}
 
-//     */
-// }
-
-// console.log(checkEmail('apranata@binar.co.id'));
-// console.log(checkEmail('apranata@binar.com'));
-// console.log(checkEmail('apranata@binar'));
-// console.log(checkEmail('apranata'));
-// console.log(checkTypeNumber(checkEmail(3322)));
-// console.log(checkEmail());
+console.log(checkEmail('apranata@binar.co.id')); //valid
+console.log(checkEmail('apranata@binar.com')); //valid
+console.log(checkEmail('apranata@binar')); //invalid
+console.log(checkEmail('apranata')); //error
+console.log(checkEmail(3322)); //error
+console.log(checkEmail()); //error
 
 
 
 ///////
 // 4 //
 ///////
-function isValidPassword (email) {
-
+console.log("Number 4.");
+function isValidPassword (password) {
+    let regex = /^[\s\Sa-zA-Z0-9]{8,}$/;
+    if (typeof password === "string") {
+        if (regex.test(password)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    return "ERROR: WRONG DATA TYPE";
 }
 
-console.log(isValidPassword('Meong2021'));
-console.log(isValidPassword('meong2021'));
-console.log(isValidPassword('@eong'));
-console.log(isValidPassword('Meong2'));
-console.log(isValidPassword(0));
-console.log(isValidPassword());
+console.log(isValidPassword('Meong2021')); //true
+console.log(isValidPassword('meong2021')); //false
+console.log(isValidPassword('@eong')); //false
+console.log(isValidPassword('Meong2')); //false
+console.log(isValidPassword(0)); //error
+console.log(isValidPassword()); //error
 
 
 ///////
 // 5 //
 ///////
+console.log("Number 5.");
 function getSplitName(personName) {
-    /*
-
-    */
     if (typeof personName === "string") {
         const newName = personName.split(' ');
         if (newName.length === 1){
@@ -97,7 +109,7 @@ function getSplitName(personName) {
                 middleName : null,
                 lastName : null,
             };
-            return typeof name1 == "object";
+            return name1;
         } else if (newName.length === 2){
             const name2 = {
                 firstName : newName[0],
@@ -113,7 +125,7 @@ function getSplitName(personName) {
             };
             return name3;
         } else {
-            return "Error: This function is only for 3 characters name";
+            return "ERROR: This function is only for 3 characters name";
         }
     }  else {
         return "ERROR: Tipe data bukan string";
@@ -131,16 +143,8 @@ console.log(getSplitName(0));
 ///////
 // 6 //
 ///////
+console.log("Number 6.");
 function getAngkaTerbesarKedua(dataAngka) {
-    /*
-    firstBiggest = arr data angka index 0
-    secondBiggest = 0
-
-
-    looping
-
-    }
-    */
     var firstBiggest = dataAngka[0];
     var secondBiggest = 0;
     
@@ -201,9 +205,6 @@ const dataPenjualanPakAldi = [
   ]
 
 function getTotalPenjualan(dataPenjualan){
-    /*
-
-    */
    dataPenjualan === "number";
 
 }
@@ -258,10 +259,7 @@ function getInfoPenjualan(dataPenjualan){
     /*
 
     */
-
-
-
-    dataPenjualan === "object"
+    dataPenjualan === "object";
 }
 
 console.log(getInfoPenjualan(dataPenjualanNovel));
